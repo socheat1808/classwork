@@ -5,10 +5,10 @@
 <div class="container py-4">
 
     <!-- Title -->
-    <h2 class="fw-bold">Cozy Villa</h2>
+    <h2 class="fw-bold">{{ $property->title }}</h2>
 
     <p class="text-muted mb-3">
-        📍 Claraburgh, Tunisia · ⭐ New Listing · 👤 Hosted by Test User
+        📍 {{ $property->location }} · ⭐ New Listing · 👤 Hosted by Test User
     </p>
 
     <!-- Image Gallery -->
@@ -58,15 +58,11 @@
             <h5 class="fw-bold mb-3">About this space</h5>
 
             <p class="text-muted">
-                🛏 6 Bedrooms &nbsp;&nbsp; 🛁 2 Bathrooms
+                🛁 {{ $property->bathrooms }} Bathrooms
             </p>
 
             <p class="text-muted">
-                Et ratione tempora impedit incidunt reiciendis. Voluptatem delectus iusto assumenda ut...
-            </p>
-
-            <p class="text-muted">
-                Animi natus omnis vitae fuga eos. Molestiae aliquid voluptatem dolore...
+                {{ $property->description }}
             </p>
 
         </div>
@@ -76,7 +72,9 @@
 
             <div class="card border-0 shadow rounded-4 p-3">
 
-                <h5 class="fw-bold mb-3">$298 <span class="text-muted fs-6">/ night</span></h5>
+                <h5 class="fw-bold mb-3">
+                     ${{ $property->price }}<span class="text-muted fs-6">/ night</span>
+                </h5>
 
                 <!-- Dates -->
                 <div class="mb-3">

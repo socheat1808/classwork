@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Property;
 use Illuminate\Support\Facades\Route;
 
 // 1. Define the data at the TOP of the file so all routes can access it
@@ -39,7 +40,13 @@ Route::get('/', function () {
     return view('index', compact('properties'));
 })->name('home');
 
-Route::get('/properties/{id}', function($id){
-    return view('properties-details', compact('id'));
-})->name('property.show');
+// Route::get('/properties/{id}', function($id){
+//     return view('properties-details', compact('id'));
+// })->name('property.show');
 
+
+Route::get('/properties/{id}', function ($id) {
+    $property = Property::findOrFail($id);
+
+    return view('properties-details', compact('property'));
+})->name('property.show');
